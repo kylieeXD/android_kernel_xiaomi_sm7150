@@ -63,12 +63,10 @@ function KERNEL_RESULT() {
 		exit 1
 	fi
 
-	# Cat Image
-	cat "$GZIP" "$DTB" > "$CAT"
-
 	# Copying image
-	cp "$CAT" "$1/kernels/"
+	cp "$GZIP" "$1/kernels/"
 	cp "$DTBO" "$1/kernels/"
+	cp "$DTB" "$1/kernels/"
 
 	# Created zip kernel
 	cd "$1" && zip -r9 "$2" *
